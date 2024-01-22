@@ -8,6 +8,13 @@ from PIL import Image
 import io
 from torchvision import transforms
 
+"""
+@author: Jerlin
+@title: SuperTrend
+@nickname: 📈 Super Trend
+@description: A super trend indicator for US stocks.
+"""
+
 class SuperTrendNode:
 
     def __init__(self):
