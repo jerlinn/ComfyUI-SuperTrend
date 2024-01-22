@@ -1,0 +1,8 @@
+pandas
+pandas_ta
+numpy
+yfinance
+plotly
+Pillow
+torchvision
+torch
