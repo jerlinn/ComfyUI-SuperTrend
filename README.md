@@ -1,7 +1,8 @@
 # ComfyUI-SuperTrend
 A super trend indicator for US stocks
 
-![CleanShot 2024-01-22 at 16 16 59@2x](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/d306081f-4f38-488c-93a8-9282c71310dc)
+![CleanShot 2024-01-22 at 20 34 44@2x](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/bc445477-5e1b-42d9-ad9d-85d2ff3ad1ad)
+
 
 **Usage**
 - Input：Stock symbol、Date
@@ -24,6 +25,13 @@ cd custom_nodes/ComfyUI-SuperTrend
 pip install -r requirements.txt
 Restart ComfyUI
 ```
+**Add Node:**
+
+```
+Finacial Analysis  ▸ 📈 Super Trend
+```
+
+---
 
 ## Examples
 Microsoft
