@@ -14,7 +14,7 @@ A super trend indicator for US stocks
   
 ## Usage
 - 🖊️ Input：Stock symbol、Date (YYYYMMDD)
-- 🏞️ Output：SuuuuperTrend
+- 🏞️ Output：SuuuuperTrend plot
 
 ## Install ｜ Manual
 ```
@@ -27,7 +27,7 @@ Restart ComfyUI
 **Add Node:**
 
 ```
-Right Click ▸ Finacial Analysis ▸ 📈 Super Trend
+Right Click ▸ Financial Analysis ▸ 📈 Super Trend
 ```
 
 ---
