@@ -1,7 +1,7 @@
-# ComfyUI-SuperTrend
+# ComfyUI SuperTrend
 A super trend indicator for US stocks
 
-![CleanShot 2024-01-22 at 20 34 44@2x](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/bc445477-5e1b-42d9-ad9d-85d2ff3ad1ad)
+![CoverIMG](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/7de1079c-5d33-40bb-ac0d-419a6c830e26)
 
 **Plots**
 - Candle chart and Trading volume
@@ -13,8 +13,11 @@ A super trend indicator for US stocks
 - ▼ Sell / Leave
   
 ## Usage
-- 🖊️ Input：Stock symbol、Date (YYYYMMDD)
+- 🖊️ Input：Stock symbols (1 or more)、Date (YYYYMMDD)
 - 🏞️ Output：SuuuuperTrend plot
+
+**Default Wirkflow**
+![CleanShot 2024-01-22 at 23 31 43@2x](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/4102876e-4cd7-47ac-b6ee-532458f2b9e8)
 
 ## Install ｜ Manual
 ```
@@ -44,6 +47,7 @@ Right Click ▸ Financial Analysis ▸ 📈 Super Trend
 
 4. Meta 
 ![ComfyUI_temp_pvrza_00006_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/83047acd-5376-4bbe-9bab-8a59033a2310)
+
 
 **Copilot**  
 [ComfyUI Assistant](https://chat.openai.com/g/g-B3qi2zKGB-comfyui-assistant) [@ZHO](https://twitter.com/ZHOZHO672070)
