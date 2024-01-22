@@ -27,20 +27,20 @@ Restart ComfyUI
 **Add Node:**
 
 ```
-Finacial Analysis  ▸ 📈 Super Trend
+Right Click ▸ Finacial Analysis ▸ 📈 Super Trend
 ```
 
 ---
 
 ## Examples
-Microsoft
+1. Microsoft
 ![ComfyUI_temp_pvrza_00003_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/26978757-b34f-46da-a050-8af054d97c55)
 
-Apple
+2. Apple
 ![ComfyUI_temp_pvrza_00004_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/7629d8c7-a2c0-4bbf-923a-168c90003f1a)
 
-Nvidia
+3. Nvidia
 ![ComfyUI_temp_pvrza_00005_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/182f9a19-4e90-4444-86d4-dd0af389374f)
 
-Meta 
+4. Meta 
 ![ComfyUI_temp_pvrza_00006_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/83047acd-5376-4bbe-9bab-8a59033a2310)
