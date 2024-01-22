@@ -6,6 +6,8 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 from PIL import Image
 import io
+import torch
+import comfy.utils
 from torchvision import transforms
 
 """
@@ -24,8 +26,8 @@ class SuperTrendNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "stock_symbol": ("STRING", {
-                    "default": "MSFT",
+                "stock_symbols": ("STRING", {
+                    "default": "MSFT,AAPL,META,GOOGL",
                     "multiline": False,
                 }),
                 "start_date": ("STRING", {
@@ -37,8 +39,26 @@ class SuperTrendNode:
 
     RETURN_TYPES = ("IMAGE",)
     CATEGORY = "Financial Analysis"
-    FUNCTION = "generate_supertrend_plot"
+    FUNCTION = "generate_supertrend_plots"
 
+    def generate_supertrend_plots(self, stock_symbols, start_date):
+        symbols = stock_symbols.split(',')
+        images_tensors = []
+        for symbol in symbols:
+            image_tensor = self.generate_supertrend_plot(symbol.strip(), start_date)
+            if image_tensor is not None:
+                if images_tensors:
+                    # 调整图片尺寸以匹配第一张图片
+                    if image_tensor.shape[1:] != images_tensors[0].shape[1:]:
+                        image_tensor = comfy.utils.common_upscale(image_tensor.movedim(-1,1), images_tensors[0].shape[2], images_tensors[0].shape[1], "bilinear", "center").movedim(1,-1)
+                images_tensors.append(image_tensor)
+
+        # Batched images
+        if images_tensors:
+            batched_images = torch.cat(images_tensors, dim=0)
+            return (batched_images,)
+
+        return None
     def generate_supertrend_plot(self, stock_symbol, start_date):
         # Convert start date from 'YYYYMMDD' to 'YYYY-MM-DD'
         start_date = pd.to_datetime(start_date, format='%Y%m%d').strftime('%Y-%m-%d')
@@ -101,11 +121,10 @@ class SuperTrendNode:
             mode='markers', name='卖出', 
             marker=dict(symbol='triangle-down-dot', color='green', size=10)
         ), row=1, col=1)
-
-        #family是名称而不是路径
+        
         fig.update_layout(
             width=960, height=600,
-            title={'text': '超级趋势指标', 'font': dict(family="SmileySans-Oblique", size=32, color="#222222")}, 
+            title={'text': '超级趋势指标', 'font': dict(family="SmileySans-Oblique", size=32, color="#222222")},  #family是名称而不是路径
             title_x=0.5, 
             legend_title='图例',
             xaxis_rangeslider_visible=False
@@ -114,21 +133,22 @@ class SuperTrendNode:
         fig.update_yaxes(title_text='交易量', row=2, col=1)
         fig.update_xaxes(showgrid=False)
 
-        """首先使用 io.BytesIO 和 fig.write_image 将 Plotly 图表转换为 PNG 格式的图像，并存储在内存中。然后，使用 Image.open 将这个内存中的图像转换为 PIL 图像对象。"""
+        """首先使用 io.BytesIO 和 fig.write_image 将 Plotly 图表转换为 PNG 格式的图像，并存储在内存中。然后使用 Image.open 将其转换为 PIL 图像对象。"""
         # 创建一个 BytesIO 对象来保存图像数据
-        fig_bytes = io.BytesIO() #这是一张RGBA的png
-        fig.write_image(fig_bytes, format='png')
+        fig_bytes = io.BytesIO()
+        fig.write_image(fig_bytes, format='png') # It's RGBA
         fig_bytes.seek(0)
 
-        image = Image.open(fig_bytes).convert("RGB")
-        #print("Image size:", image.size)  # 打印图像尺寸进行检查，输出 Image size: (960, 600)
+        image = Image.open(fig_bytes).convert("RGB")  #Image size (W, H)
 
         transform = transforms.ToTensor()
-        image_tensor = transform(image)
-        #print("Tensor shape before unsqueeze:", image_tensor.shape)  # 检查张量形状，实际是CHW，torch.Size([3, 600, 960])
+        image_tensor = transform(image) # tensor.shape (C, H, W)
         
-        # 调整张量形状以匹配 ComfyUI 的期望格式，从 (C, H, W) 转换为 (1, H, W, C) 格式
-        image_tensor = image_tensor.unsqueeze(0).permute(0, 2, 3, 1)
-        #print("Tensor shape after unsqueeze and permute:", image_tensor.shape)  # 再次检查张量形状，torch.Size([1, 600, 960, 3])
+        # (C, H, W) to (1, H, W, C) 
+        image_tensor = image_tensor.unsqueeze(0).permute(0, 2, 3, 1)  
 
-        return (image_tensor,) #元组（tuple）。在 Python 中，元组是一种不可变的序列类型，可以包含多个值。元组的元素由逗号分隔，当元组只有一个元素时，需要在该元素后面加上逗号 , 来表示它是一个元组，而不是单纯的括号表达式。
+        return image_tensor
+        """
+        返回一个元组而不是单个张量似乎使得 ComfyUI 正确地识别了数据作为一个图像张量，而不是将其作为一个普通的数值张量。
+        return image_tensor 返回的可能被视为一个普通的数值张量，这可能导致 ComfyUI 按照不同的方式处理这个张量。例如，它可能将每个通道解释为一个独立的灰度图像，而不是将整个张量作为一个彩色图像。
+        """
