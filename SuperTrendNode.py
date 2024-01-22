@@ -6,7 +6,6 @@ import plotly.graph_objs as go
 from plotly.subplots import make_subplots
 from PIL import Image
 import io
-import os
 from torchvision import transforms
 
 class SuperTrendNode:
@@ -115,14 +114,14 @@ class SuperTrendNode:
         fig_bytes.seek(0)
 
         image = Image.open(fig_bytes).convert("RGB")
-        print("Image size:", image.size)  # 打印图像尺寸进行检查，输出 Image size: (960, 600)
+        #print("Image size:", image.size)  # 打印图像尺寸进行检查，输出 Image size: (960, 600)
 
         transform = transforms.ToTensor()
         image_tensor = transform(image)
-        print("Tensor shape before unsqueeze:", image_tensor.shape)  # 检查张量形状，实际是CHW，torch.Size([3, 600, 960])
+        #print("Tensor shape before unsqueeze:", image_tensor.shape)  # 检查张量形状，实际是CHW，torch.Size([3, 600, 960])
         
         # 调整张量形状以匹配 ComfyUI 的期望格式，从 (C, H, W) 转换为 (1, H, W, C) 格式
         image_tensor = image_tensor.unsqueeze(0).permute(0, 2, 3, 1)
-        print("Tensor shape after unsqueeze and permute:", image_tensor.shape)  # 再次检查张量形状，torch.Size([1, 600, 960, 3])
+        #print("Tensor shape after unsqueeze and permute:", image_tensor.shape)  # 再次检查张量形状，torch.Size([1, 600, 960, 3])
 
         return (image_tensor,) #元组（tuple）。在 Python 中，元组是一种不可变的序列类型，可以包含多个值。元组的元素由逗号分隔，当元组只有一个元素时，需要在该元素后面加上逗号 , 来表示它是一个元组，而不是单纯的括号表达式。

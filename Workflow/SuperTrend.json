@@ -1,7 +1,40 @@
 {
-  "last_node_id": 29,
-  "last_link_id": 29,
+  "last_node_id": 30,
+  "last_link_id": 30,
   "nodes": [
+    {
+      "id": 30,
+      "type": "SuperTrendNode",
+      "pos": [
+        530,
+        -1640
+      ],
+      "size": [
+        210,
+        80
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SuperTrendNode"
+      },
+      "widgets_values": [
+        "MSFT",
+        "20230601"
+      ]
+    },
     {
       "id": 25,
       "type": "Note",
@@ -9,18 +42,18 @@
         530,
         -1510
       ],
-      "size": [
-        210,
-        180
-      ],
+      "size": {
+        "0": 210,
+        "1": 180
+      },
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
       "properties": {
         "text": ""
       },
       "widgets_values": [
-        "# SuperTrend by Jerlin\n\nInput：Stock symbol、Date\nOutput：SuuuuperTrend\n\n🔴 LowerBand: Rising cycle\n🟢 UpperBand: Down cyle\n▲ Buy\n▼ Sell/Leave\n\nWechat：oasisAI\n𝕏：eviljer"
+        "# SuperTrend by Jerlin\n\nInput：Stock symbol、Date\nOutput：SuuuuperTrend\n\n🔴 LowerBand: Rising cycle\n🟢 UpperBand: Down cyle\n▲ Buy\n▼ Sell/Leave\n\nWechat：oasisFM\n𝕏：eviljer"
       ],
       "color": "#2a363b",
       "bgcolor": "#3f5159"
@@ -32,10 +65,10 @@
         760,
         -1640
       ],
-      "size": [
-        450,
-        310
-      ],
+      "size": {
+        "0": 450,
+        "1": 310
+      },
       "flags": {},
       "order": 2,
       "mode": 0,
@@ -43,51 +76,18 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 28
+          "link": 30
         }
       ],
       "properties": {
         "Node name for S&R": "PreviewImage"
       }
-    },
-    {
-      "id": 24,
-      "type": "SuperTrendNodee",
-      "pos": [
-        530,
-        -1640
-      ],
-      "size": [
-        210,
-        80
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            28
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SuperTrendNodee"
-      },
-      "widgets_values": [
-        "AAPL",
-        "20230601"
-      ]
     }
   ],
   "links": [
     [
-      28,
-      24,
+      30,
+      30,
       0,
       2,
       0,
