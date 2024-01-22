@@ -4,8 +4,8 @@ A super trend indicator for US stocks
 ![CleanShot 2024-01-22 at 20 34 44@2x](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/bc445477-5e1b-42d9-ad9d-85d2ff3ad1ad)
 
 **Usage**
-🖊️ Input：Stock symbol、Date (YYYYMMDD)
-🏞️ Output：SuuuuperTrend
+- 🖊️ Input：Stock symbol、Date (YYYYMMDD)
+- 🏞️ Output：SuuuuperTrend
 
 **Plots**
 - Candle chart and Trading volume
