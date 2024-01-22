@@ -45,5 +45,5 @@ Right Click ▸ Financial Analysis ▸ 📈 Super Trend
 4. Meta 
 ![ComfyUI_temp_pvrza_00006_](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/83047acd-5376-4bbe-9bab-8a59033a2310)
 
-**Copilot**
-(ComfyUI Assistant)[https://chat.openai.com/g/g-B3qi2zKGB-comfyui-assistant] [@ZHO](https://twitter.com/ZHOZHO672070)
+**Copilot**  
+[ComfyUI Assistant](https://chat.openai.com/g/g-B3qi2zKGB-comfyui-assistant) [@ZHO](https://twitter.com/ZHOZHO672070)
