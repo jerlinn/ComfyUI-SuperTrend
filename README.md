@@ -1,10 +1,10 @@
 # ComfyUI SuperTrend
-A super trend indicator for US stocks
+A Supertrend indicator for US stocks, a technical analysis tool that can assist investors in identifying market trends.
 
 ![CoverIMG](https://github.com/jerlinn/ComfyUI-SuperTrend/assets/91647085/7de1079c-5d33-40bb-ac0d-419a6c830e26)
 
 **Plots**
-- Candle chart and Trading volume
+- Candlestick with Trading volume chart
 
 **Legend**
 - 🔴 LowerBand: Rising cycle
