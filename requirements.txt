@@ -4,5 +4,6 @@ numpy
 yfinance
 plotly
 Pillow
+kaleido
 torchvision
 torch
