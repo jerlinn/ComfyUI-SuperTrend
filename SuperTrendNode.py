@@ -59,6 +59,7 @@ class SuperTrendNode:
             return (batched_images,)
 
         return None
+    # 断开 VPN 会导致 'SUPERTd_14_2.0' 报错，请保持连接。
     def generate_supertrend_plot(self, stock_symbol, start_date):
         # Convert start date from 'YYYYMMDD' to 'YYYY-MM-DD'
         start_date = pd.to_datetime(start_date, format='%Y%m%d').strftime('%Y-%m-%d')
