@@ -11,6 +11,13 @@ A Supertrend indicator for US stocks, a technical analysis tool that can assist 
 - 🟢 UpperBand: Down cyle
 - ▲ Buy
 - ▼ Sell / Leave
+
+**Calculate**
+\text{BASIC Upperband} = \frac{\text{High} + \text{Low}}{2} + \text{Multiplier} \times \text{ATR}
+\text{BASIC Lowerband} = \frac{\text{High} + \text{Low}}{2} - \text{Multiplier} \times \text{ATR}
+- **High and low:** These are the highest and lowest prices of the asset during a specified time frame. （Default is 7, I set 14)
+- **ATR:** This measures market volatility. The ATR is calculated based on the highest and lowest prices, as well as the closing price of the asset over a specified time frame.  
+- **Multiplier:** This is a constant value that traders and investors employ to push the indicator to be more or less sensitive to price movements.（Default is 3, I set 2)
   
 ## Usage
 - 🖊️ Input：Stock symbols (1 or more)、Date (YYYYMMDD)
